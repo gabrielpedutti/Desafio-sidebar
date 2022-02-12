@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio: Sidebar</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <aside class= "modal">
+        <header class="modal"> 
+            <div class="logo"><img src="images/logo.svg" alt="Logo Vet"></div>
+            <div class= "dashboard modal" onclick= "menuEstado()"><span class="hamburger"></span></div>
+        </header>
+        <nav>
+            <div class="menu modal">
+                <ul>
+                    <li><img src="images/search.svg" alt="Icone Pesquisar"> <input type="text" placeholder="Buscar"></li>
+                    <li><img src="images/grid.svg" alt="Icone Dashboard"><span class="nomeIcones">Dashboard</span></li>
+                    <li><img src="images/pet.svg" alt="Icone Pets"><span class="nomeIcones">Pets</span></li>
+                    <li><img src="images/user.svg" alt="Icone Clientes"><span class="nomeIcones">Clientes</span></li>
+                    <li><img src="images/vet.svg" alt="Icone Veterinario"><span class="nomeIcones">Vets</span></li>
+                    <li><img src="images/settings.svg" alt="Icone Ajustes"><span class="nomeIcones">Ajustes</span></li>
+                </ul>
+                
+                <div class="logout">
+                    <div class="usuario">
+                        <div class="imagemPerfil"></div>
+                        <p class="nome">Eleanor Pena</p>
+                        <p class="cargo">Veterinária</p>
+                    </div>
+                    <img class="icone" src="images/log-out.svg" alt="Icone Logout">
+                </div>
+            </div>
+        </nav>
+    </aside>
+    <main>
+        <h1>Dashboard</h1>
+    </main>
+    <footer>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

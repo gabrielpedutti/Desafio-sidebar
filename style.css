@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --body-bg-color: #dce4e3;
+    --green: #18c29c;
+    --light-green: #8ed7c6;
+    --light-grey: #dce4e3;
+    --text-color: #084236;
+}
+
+body {
+    display: flex;
+    background-color: var(--body-bg-color);
+}
+
+header {
+    background-color: var(--green);  
+    padding: 1.5rem 0;
+    display: flex;
+}
+
+.hamburger {
+    display: block;
+    background-color: var(--text-color);
+    width: 22px;
+    height: 2px;
+    position: relative;
+    margin-left: auto;
+    margin-right: 21px;
+    top: 10px;
+    left: 1px;
+    transition: 0.5s;
+}
+
+.hamburger::before,
+.hamburger::after{
+    background-color: var(--text-color);
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.hamburger::before{
+    top: -7px;
+}
+
+.hamburger::after{
+    bottom: -7px;
+}
+
+.dashboard.modal.open-menu .hamburger {
+    transform: rotate(45deg);
+}
+
+.dashboard.modal.open-menu .hamburger::before {
+    transform: rotate(90deg);
+    top: 0
+}
+
+.dashboard.modal.open-menu .hamburger::after {
+    transform: rotate(90deg);
+    bottom: 0
+}
+
+div.logo {
+    margin-left: 21px;
+    position: absolute;
+    cursor: pointer;
+    overflow: hidden;
+    display: hidden;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+header.open-menu div.logo {
+    margin-left: 21px;
+    overflow: hidden;
+    display: visible;
+    visibility: visible;
+    transition: 1s;
+    opacity: 1;
+}
+
+header div.dashboard {
+    margin-left: auto;
+    margin-bottom: 10px;
+    /* margin-right: 21px; */
+    transition: 1s;
+    cursor: pointer;
+    padding-bottom: 20px;
+}
+
+header.open-menu div.dashboard {
+    margin-left: auto;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100vh - 80px);
+}
+
+aside {
+    height: 100vh;
+    background-color: var(--green);
+    width: 4rem;
+    transition: 1s;
+}
+
+aside.open-menu {
+    height: 100vh;
+    background-color: var(--green);
+    width: 16rem;
+    transition: 1s;
+}
+
+ul li img{
+    margin-right: 15px;
+}
+
+ul li {
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+    margin-left: 21px;
+    color: var(--text-color);
+    display: flex;
+    list-style: none;
+}
+
+div.menu.modal span.nomeIcones {
+    opacity: 0;
+    overflow: hidden;
+    display: hidden;
+    transition: 1s;
+}
+
+div.menu.modal.open-menu span.nomeIcones {
+    opacity: 1;
+    display: visible;
+    transition: 1s;
+}
+
+li:nth-child(1) {
+    background-color: var(--light-green);
+    margin: 0 7px 21px 7px;
+    padding: 12px 8px 12px 13px;
+    border-radius: 10px;
+    display: flex;
+}
+
+div.modal input {
+    visibility: hidden;
+    display: hidden;
+    overflow: hidden;
+}
+
+div.modal.open-menu input {
+    visibility: visible;
+    display: visible;
+    color:#084236;
+}
+
+input::placeholder {
+    color: #08423685;
+}
+
+nav li input {
+    background-color: var(--light-green);
+    border: none;
+    width: 190px;
+}
+
+nav li input:focus {
+    border: none;
+    outline: none;
+}
+
+div.menu.modal div.logout {
+    background-color: var(--light-green);
+    display: flex;
+    width: auto;
+    height: 50px;
+    width: auto;
+    transition: 1s;
+}
+
+div.menu.modal div.logout img.icone {
+    margin-left: auto;
+    margin-right: 21px;
+}
+
+div.menu.modal.open-menu div.logout img.icone {
+    margin-left: auto;
+}
+
+div.menu.modal div.logout div.imagemPerfil{
+    background: url('images/photo.jpg');
+    background-size: cover;
+    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    margin: 5px 0px 5px 15px;
+}
+
+@keyframes fadeout {
+    from { opacity: 1;
+        display: grid;}
+    to   { opacity: 0; 
+        display: none;}
+}
+
+div.menu.modal div.logout div.usuario {
+    position: absolute;
+    display: none;
+    overflow: hidden;
+    /* visibility: hidden; */
+    /* opacity: 0;  */
+    animation: fadeout 1s;
+}
+
+@keyframes fadein {
+    0% { 
+        /* transform: scale(0.1); */
+        display: grid;
+        opacity: 0; 
+    }
+
+    100% { 
+        /* transform: scale(1); */
+        opacity: 1; 
+        display: none;
+    }
+}
+
+div.menu.modal.open-menu div.logout div.usuario {
+    display: grid;
+    overflow: hidden;
+    /* visibility: visible; */
+    grid-template-areas: 
+        "imagem nome"
+        "imagem cargo";
+    animation: fadein 1s;
+    /* opacity: 1; */
+}
+
+.imagemPerfil {
+    grid-area: imagem;
+}
+
+.nome {
+    grid-area: nome;
+    align-self: end;
+    margin-top: 4px;
+    line-height: 15px;
+}
+
+.cargo {
+    grid-area: cargo;
+    font-size: 12px;
+    align-self: start;
+    line-height: 15px;
+}
+
+div.menu.modal div.logout p {
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+h1 {
+    color: var(--text-color);
+    font-size: 24px;
+    font-weight: 500;
+    padding: 0.8rem;
+}
